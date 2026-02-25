@@ -3,6 +3,7 @@ package org.payment.config;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
+import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,6 +20,14 @@ public class SwaggerConfig {
                         .contact(new Contact()
                                 .name("Payment Service Team")
                                 .email("support@paymentservice.com")));
+    }
+
+    @Bean
+    public GroupedOpenApi paymentApis() {
+        return GroupedOpenApi.builder()
+                .group("payment-service")
+                .packagesToScan("org.payment.controller")
+                .build();
     }
 }
 

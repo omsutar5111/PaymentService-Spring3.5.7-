@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = "org.payment.controller")
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(PaymentNotFoundException.class)
